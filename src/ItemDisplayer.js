@@ -81,8 +81,6 @@ class ItemDisplayer extends Component {
 
     return (
       <div>
-
-        <h1>{this.props.display}</h1>
         <Container>
             <Row>
                 <Col>
