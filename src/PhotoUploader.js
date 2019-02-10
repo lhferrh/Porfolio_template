@@ -7,6 +7,7 @@ import './style.css';
 import axios from 'axios';
 
 var postImageToServer = (picture) => {
+    console.log(picture);
     axios.post('http://localhost:3001/image', picture).then(
         (res) => {
             console.log(res)
@@ -25,13 +26,12 @@ class PhotoUploader extends Component {
     }
  
     postImage(picture){
-        postImageToServer(picture);
+        postImageToServer(picture[0]);
     }
 
     onDrop(picture) {
         console.log(picture);
         this.setState({
-          
             pictures: this.state.pictures.concat(picture),
         });
         this.postImage(picture);
