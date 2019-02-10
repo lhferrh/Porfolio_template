@@ -4,8 +4,10 @@ import './style.css';
 
 import nutella from './images/nutella.jpg'
 import banana from './images/banana.jpg'
-import redbull from './images/red\ bull.jpg'
+import redbull from './images/redbull.jpg'
 import snickers from './images/snickers.jpg'
+import pringles from './images/pringles.jpg'
+import pizza from './images/pizza.jpg'
 
 import { Switch } from '@material-ui/core';
 
@@ -29,7 +31,7 @@ class ItemGalery extends Component {
     }
 
     getTheImage(name){
-        switch(name){
+        switch(name.toLowerCase()){
             case "nutella":
                 return nutella;
             case "red bull":
@@ -38,6 +40,10 @@ class ItemGalery extends Component {
                 return banana;
             case "snickers":
                 return snickers;
+            case "pringles":
+                return pringles;
+            case "pizza":
+                return pizza;
             default:
                 return ""
         }
