@@ -11,7 +11,9 @@ class PhotoUploader extends Component {
     }
  
     onDrop(picture) {
+        console.log(picture);
         this.setState({
+          
             pictures: this.state.pictures.concat(picture),
         });
     }
@@ -19,8 +21,10 @@ class PhotoUploader extends Component {
     render() {
         //https://www.npmjs.com/package/react-images-upload
         //https://www.npmjs.com/package/react-images-uploader
+        
         return (
             <div>
+                <h1>The image is {(this.state.pictures[0])?this.state.pictures[0]['name']: "empty"}</h1>
                 <Container>
                     <Row>
                         <Col>
@@ -28,6 +32,7 @@ class PhotoUploader extends Component {
                             withIcon={true}
                             buttonText='Upload Image'
                             onChange={this.onDrop}
+                            withPreview={true}
                             imgExtension={['.jpg', '.gif', '.png', '.gif']}
                             maxFileSize={5242880}
                         />

@@ -27,7 +27,7 @@ class SearchBar extends Component {
             </MDBCol>
           </Col>
           <Col sm='2'>
-             <Button color="primary">Danger!</Button>
+             <Button color="primary">Search</Button>
           </Col>
         </Row>
         </Container>
