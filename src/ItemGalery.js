@@ -52,7 +52,6 @@ class ItemGalery extends Component {
   render() {
     let url = './images/' + this.props.imageUrl + ".jpg" ;
     console.log("Why url is empty " + url);
-    let image = require("./nutella.jpg");
     let myImage = this.getTheImage(this.props.imageUrl);
     return (
       
