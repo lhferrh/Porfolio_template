@@ -50,7 +50,7 @@ class Item extends Component {
     console.log(JSON.parse(this.props.match.params.id))
     return (
       <div>
-        <h1>{this.state.display}</h1>
+        
         <Naveg></Naveg>
         <h1 > {this.state.name} </h1>
         <Container>
