@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Media, Card, CardImg, } from 'reactstrap';
 import './style.css';
-import nutella from './images/nutella.jpg'
 
 import nutella from './images/nutella.jpg'
 import banana from './images/banana.jpg'
