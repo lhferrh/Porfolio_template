@@ -50,7 +50,7 @@ class Item extends Component {
 
          
   render() {
-    console.log(JSON.parse(this.props.match.params.id))
+    console.log(this.props.match.params.id)
     return (
       <div className="fill">
         

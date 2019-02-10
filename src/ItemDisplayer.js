@@ -74,9 +74,10 @@ class ItemDisplayer extends Component {
       //console.log("recycling")
       //console.log(recycling);
       let opinions = this.getFormatList("score-text", this.state.data['comments']);
+      let envs = this.getFormatList("array", this.state.data['environment']);
       //console.log("opinions")
       //console.log(opinions);
-      let properties = [nutritional, allergens, recycling, opinions]
+      let properties = [nutritional, allergens, opinions, recycling, envs]
 
     return (
       <div>

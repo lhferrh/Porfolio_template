@@ -37,12 +37,17 @@ class ItemNav extends Component {
                         </NavItem>
                         <NavItem className="buttonS">
                             <NavLink onClick={() => this.props.handleNavClick(2)} >
-                                Recycling
+                                Opinions
                             </NavLink>
                         </NavItem>
                         <NavItem className="buttonS">
                             <NavLink onClick={() => this.props.handleNavClick(3)} >
-                                Opinions
+                                Recycling
+                            </NavLink>
+                        </NavItem>
+                        <NavItem className="buttonS">
+                            <NavLink onClick={() => this.props.handleNavClick(4)} >
+                                Ecological Impact
                             </NavLink>
                         </NavItem>
                     </Nav>
