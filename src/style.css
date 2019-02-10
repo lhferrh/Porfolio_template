@@ -1,6 +1,6 @@
 :root {
     --main-nav-color: #e9ecef;
-    --main-hover-color: rgb(100, 92, 92) ; 
+    --main-hover-color: rgba(176, 176, 197, 0.62); 
     
     --main-txt-color: blue; 
     --main-padding: 15px; 
