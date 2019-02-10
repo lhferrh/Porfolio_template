@@ -8,11 +8,15 @@ import axios from 'axios';
 
 var postImageToServer = (picture) => {
     console.log(picture);
-    axios.post('http://localhost:3001/image', picture).then(
+    let data = new FormData();
+    data.append("file",picture);
+    axios.post('http://localhost:3001/image', data).then(
         (res) => {
+            console.log("result");
             console.log(res)
+            return res;
         }
-    ).catch( (err) => {  console.log(err)  })
+    ).catch( (err) => {  console.log(err); return err; })
 }
 
 
@@ -26,7 +30,8 @@ class PhotoUploader extends Component {
     }
  
     postImage(picture){
-        postImageToServer(picture[0]);
+        let res = postImageToServer(picture[0]);
+        console.log(res);
     }
 
     onDrop(picture) {

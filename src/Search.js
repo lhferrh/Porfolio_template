@@ -3,6 +3,7 @@ import Naveg from './Nav';
 import SearchBar from'./SearchBar'
 import PhotoUploader from './PhotoUploader'
 import ThemeSwitcher from './ThemeSwitcher'
+import Footer from './Footer'
 
 import './style.css';
 
@@ -28,7 +29,7 @@ class Search extends Component {
         <SearchBar></SearchBar>
         <PhotoUploader></PhotoUploader>
         <ThemeSwitcher></ThemeSwitcher>
-
+        <Footer></Footer>
       </div>
      
     )

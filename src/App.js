@@ -5,7 +5,7 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 import { Route } from 'react-router';
 
 import Search from './Search'
-
+import Item from './Item'
 class App extends Component {
   render() {
     return (
@@ -15,6 +15,7 @@ class App extends Component {
           <div className="container">
             <Switch>
               <Route exact path="/" component={Search} />
+              <Route exact path="/item" component={Item} />
             </Switch>
           </div>
         </div>
