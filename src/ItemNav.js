@@ -25,34 +25,32 @@ class ItemNav extends Component {
         return (
             <div>
                 <Navbar color="faded" light expand="md">
-                    {/* Brandname */}
-                    <NavbarBrand href="/">
-                        SMARTFOOD
-                    </NavbarBrand>
-                    {/* Add toggler to auto-collapse */}
                     <NavbarToggler onClick={this.toggle} />
-                    <Collapse isOpen={this.state.isOpen} navbar>
+                   
 
                     {/*Pull left */}
                     <Nav className="ml-auto" navbar>
                         <NavItem>
                             <NavLink onClick={() => this.props.handleNavClick(0)}  >
-                                Nav1
+                                Nutritional
                             </NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink onClick={() => this.props.handleNavClick(1)}>
-                                Nav2
+                                Allergens
                             </NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink onClick={() => this.props.handleNavClick(2)} >
-                                Nav2
+                                Recycling
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink onClick={() => this.props.handleNavClick(3)} >
+                                Opinions
                             </NavLink>
                         </NavItem>
                     </Nav>
-
-                </Collapse>
                 </Navbar>
             </div> 
         )

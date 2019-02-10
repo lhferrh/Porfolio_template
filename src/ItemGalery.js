@@ -3,6 +3,7 @@ import { Media, Card, CardImg, } from 'reactstrap';
 import './style.css';
 import nutella from './images/nutella.jpg'
 
+
 class ItemGalery extends Component {
   
   constructor(props){
@@ -24,7 +25,10 @@ class ItemGalery extends Component {
          
   render() {
     let url = './images/' + this.props.imageUrl + ".jpg" ;
+    console.log("Why url is empty " + url);
+    let image = require("./nutella.jpg");
     return (
+      
       <div>
         <h1>{url}</h1>
         <Card>

@@ -9,6 +9,7 @@ class ItemDisplayer extends Component {
 
         this.state = {
             name: "Nutella",
+            data: "",
             nutrients:{
                 Calories: 100,
                 Sugar: 100,
@@ -27,24 +28,56 @@ class ItemDisplayer extends Component {
     }
 
     componentDidMount(){
+        this.setState(
+            {
+                data: this.props.data
+            }
+        )
+        console.log("We got the information")
+        console.log(this.props.data);
+        console.log(this.state.data);
        
     }
-    getFormatList(list){
+    getFormatList( type, list){
         let content = "";
         let result = [];
-        for (var key in list) {
-            content =  key + ": " + list[key]
-            result.push( <li>{content}</li>);
+        if( type === "key-value"){
+            for (var key in list) {
+                content =  key + ": " + list[key]
+                result.push( <li>{content}</li>);
+            }
         }
+        else if( type === "array"){
+            for (var key in list) {
+                content =  list[key]
+                result.push( <li>{content}</li>);
+            }
+        }
+        else if( type === "score-text"){
+            for (var key in list) {
+                content =   list[key]['text'] + " " + list[key]['score'];
+                result.push( <li>{content}</li>);
+            }
+        }
+       
 
         return result;
     }
          
   render() {
-      let nutrients = this.getFormatList(this.state.nutrients);
-      let alergies = this.getFormatList(this.state.alergies);
-      let recicling = this.getFormatList(this.state.recicling);
-      let properties = [nutrients, alergies, recicling]
+      let nutritional = this.getFormatList("key-value", this.state.data['nutritional']);
+      //console.log("nutritional")
+      //console.log(nutritional);
+      let allergens = this.getFormatList("array", this.state.data['allergens']);
+      //console.log("allergens")
+      //console.log(allergens);
+      let recycling = this.getFormatList("key-value",this.state.data['recycling']);
+      //console.log("recycling")
+      //console.log(recycling);
+      let opinions = this.getFormatList("score-text", this.state.data['comments']);
+      //console.log("opinions")
+      //console.log(opinions);
+      let properties = [nutritional, allergens, recycling, opinions]
 
     return (
       <div>
