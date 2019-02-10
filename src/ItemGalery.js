@@ -8,25 +8,26 @@ class ItemGalery extends Component {
     super(props);
 
     this.state = {
+      imageUrl: ""
 
     }
   }
-/*<Media>
-            <Media left href="./image.jpg">
-                <Media object data-src="holder.js/64x64" alt="Generic placeholder image" />
-            </Media>
-            <Media body>
-                <Media heading>
-                Media heading
-                </Media>
-            </Media>
-        </Media>*/
+  
+  componentDidMount(){
+    
+    this.setState({
+      imageUrl: this.props.imageUrl
+    })
+  }
+
          
   render() {
+    let url = './images/' + this.props.imageUrl + ".jpg" ;
     return (
       <div>
+        <h1>{url}</h1>
         <Card>
-            <CardImg top width="100%" src="./image.jpg" alt="Card image cap" />
+            <CardImg top width="100%" src="./images/nutella.jpg" alt="Card image cap" />
         </Card>
 
       </div>

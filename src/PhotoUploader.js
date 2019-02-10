@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {  Container, Row, Col } from "reactstrap";
 import ImageUploader from 'react-images-upload';
-import { withRouter } from "react-router-dom";
 //import { postImageToServer }from './api'
 import './style.css';
+import { withRouter } from 'react-router-dom';
 
 import axios from 'axios';
 
-var postImageToServer = (picture, callback) => {
+var postImageToServer = (picture, pointer,  callback) => {
     console.log(picture);
     let data = new FormData();
     data.append("file",picture);
@@ -15,7 +15,7 @@ var postImageToServer = (picture, callback) => {
         (res) => {
             console.log("Promise");
             console.log(res)
-            callback(res)
+            return callback(res, pointer)
         }
     ).catch( (err) => {  console.log(err); return err; })
 }
@@ -31,14 +31,19 @@ class PhotoUploader extends Component {
     }
  
     postImage(picture){
-        let res = postImageToServer(picture[0], function(data){
+        let res = postImageToServer(picture[0],this,  function(data, pointer ){
             console.log("Final Result");
             console.log(data.data);
-            let path = "/item/25"; //+data.data;
-            console.log(path);
-            this.context.router.history.push(path);
-            
+            let json = JSON.stringify(data.data);
+            let path = "/item/"+json;
+            console.log(pointer.props.history) //.push(res);
+            pointer.props.history.push(path);
+            return path;
         });
+        
+        console.log("outside");
+        console.log(res);
+        //this.props.history.push(res);
     }
 
     onDrop(picture) {
@@ -78,5 +83,4 @@ class PhotoUploader extends Component {
 }
 
 //export default PhotoUploader ;
-
 export default withRouter(PhotoUploader);

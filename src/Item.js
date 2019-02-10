@@ -15,16 +15,30 @@ class Item extends Component {
   
   constructor(props){
     super(props);
-
+    
     this.state = {
         name: "",
-        display: 0
+        display: 0,
+        imageUrl: "",
+        information: {}
+        
 
     }
 
     this.handleNavClick = this.handleNavClick.bind(this);
   }
   
+  componentDidMount(){
+    let data = JSON.parse(this.props.match.params.id);
+    //let imageUrl = './images/' + data.name,
+
+    this.setState({
+      name: data.name,
+      imageUrl: data.name,
+      information: data
+    })
+     
+  }
   handleNavClick(feature){
       this.setState({
         display: feature
@@ -33,7 +47,7 @@ class Item extends Component {
 
          
   render() {
-    console.log(this.props.match.params.id)
+    console.log(JSON.parse(this.props.match.params.id))
     return (
       <div>
         <h1>{this.state.display}</h1>
@@ -42,7 +56,9 @@ class Item extends Component {
         <Container>
           <Row>
             <Col>
-              <ItemGalery></ItemGalery>
+              <ItemGalery
+                imageUrl={this.state.imageUrl}
+              ></ItemGalery>
             </Col>
             <Col>
               <Container>

@@ -58,8 +58,6 @@ class ItemDisplayer extends Component {
                     </ul>    
                 </Col>
             </Row>
-           
-
         </Container>
 
       </div>
