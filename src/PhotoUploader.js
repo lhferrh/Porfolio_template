@@ -1,22 +1,45 @@
 import React, { Component } from 'react';
 import {  Container, Row, Col } from "reactstrap";
 import ImageUploader from 'react-images-upload';
+//import { postImageToServer }from './api'
 import './style.css';
+
+import axios from 'axios';
+
+var postImageToServer = (picture) => {
+    axios.post('http://localhost:3001/image', picture).then(
+        (res) => {
+            console.log(res)
+        }
+    ).catch( (err) => {  console.log(err)  })
+}
+
+
 
 class PhotoUploader extends Component {
     constructor(props) {
         super(props);
          this.state = { pictures: [] };
          this.onDrop = this.onDrop.bind(this);
+         this.postImage = this.postImage.bind(this);
     }
  
+    postImage(picture){
+        postImageToServer(picture);
+    }
+
     onDrop(picture) {
         console.log(picture);
         this.setState({
           
             pictures: this.state.pictures.concat(picture),
         });
+        this.postImage(picture);
     }
+
+    
+
+
  
     render() {
         //https://www.npmjs.com/package/react-images-upload
