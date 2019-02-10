@@ -6,20 +6,15 @@ import './style.css';
 
 import axios from 'axios';
 
-var postImageToServer = (picture) => {
+var postImageToServer = (picture, callback) => {
     console.log(picture);
     let data = new FormData();
-<<<<<<< HEAD
     data.append("file",picture);
-=======
-    data.append('file', picture);
-    data.append('name', picture.name);
->>>>>>> 559d05c5ac2417bf397b27072e38ff340155a5f4
-    axios.post('http://localhost:3001/image', data).then(
+    axios.post('http://10.42.0.117:3001/image', data).then(
         (res) => {
             console.log("result");
             console.log(res)
-            return res;
+            callback(res)
         }
     ).catch( (err) => {  console.log(err); return err; })
 }
@@ -35,8 +30,9 @@ class PhotoUploader extends Component {
     }
  
     postImage(picture){
-        let res = postImageToServer(picture[0]);
-        console.log(res);
+        let res = postImageToServer(picture[0], function(data){
+            console.log(data.data);
+        });
     }
 
     onDrop(picture) {
@@ -47,10 +43,6 @@ class PhotoUploader extends Component {
         this.postImage(picture);
     }
 
-    
-
-
- 
     render() {
         //https://www.npmjs.com/package/react-images-upload
         //https://www.npmjs.com/package/react-images-uploader
