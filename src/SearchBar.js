@@ -9,8 +9,18 @@ class SearchBar extends Component {
         super(props);
 
         this.state = {
-            
+            name: ""
         }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(e) {
+        this.setState({name: e.target.value})
+    }
+
+    handleSubmit(data) {
+        console.log(this.state.name)
     }
 
   render() {
@@ -22,12 +32,12 @@ class SearchBar extends Component {
           <Col sm='10'>
             <MDBCol md="6">
               <div className="active-pink-3 active-pink-4 mb-4">
-                <input className="form-control" type="text" placeholder="Search" aria-label="Search" />
+                <input onChange={this.handleChange} value={this.state.name} className="form-control" type="text" placeholder="Search" aria-label="Search" />
               </div>
             </MDBCol>
           </Col>
           <Col sm='2'>
-             <Button color="primary">Search</Button>
+             <Button color="primary" onClick={this.handleSubmit}>Search</Button>
           </Col>
         </Row>
         </Container>
