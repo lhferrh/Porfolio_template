@@ -19,7 +19,8 @@ class Item extends Component {
     this.state = {
         name: "",
         display: 0,
-        imageUrl: ""
+        imageUrl: "",
+        description: ""
     }
 
     this.handleNavClick = this.handleNavClick.bind(this);
@@ -31,7 +32,8 @@ class Item extends Component {
 
     this.setState({
       name: data.name,
-      imageUrl: data.name
+      imageUrl: data.name,
+      description: data.description
     })
      
   }
@@ -52,7 +54,7 @@ class Item extends Component {
       <div>
         
         <Naveg></Naveg>
-        <h1 > {this.state.name} </h1>
+        <h1 > {this.state.name} </h1><p>{this.state.description}</p>
         <Container>
           <Row>
             <Col  md="4">
