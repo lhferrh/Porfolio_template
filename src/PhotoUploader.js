@@ -8,7 +8,10 @@ import axios from 'axios';
 
 var postImageToServer = (picture) => {
     console.log(picture);
-    axios.post('http://localhost:3001/image', picture).then(
+    let data = new FormData();
+    data.append('file', picture);
+    data.append('name', picture.name);
+    axios.post('http://localhost:3001/image', data).then(
         (res) => {
             console.log(res)
         }
