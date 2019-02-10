@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Media, Card, CardImg, } from 'reactstrap';
 import './style.css';
 
+
 class ItemGalery extends Component {
   
   constructor(props){
@@ -23,11 +24,14 @@ class ItemGalery extends Component {
          
   render() {
     let url = './images/' + this.props.imageUrl + ".jpg" ;
+    console.log("Why url is empty " + url);
+    let image = require("./nutella.jpg");
     return (
+      
       <div>
         <h1>{url}</h1>
         <Card>
-            <CardImg top width="100%" src="./images/nutella.jpg" alt="Card image cap" />
+            <CardImg top width="100%" src={image} alt="Card image cap" />
         </Card>
 
       </div>

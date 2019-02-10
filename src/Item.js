@@ -19,10 +19,7 @@ class Item extends Component {
     this.state = {
         name: "",
         display: 0,
-        imageUrl: "",
-        information: {}
-        
-
+        imageUrl: ""
     }
 
     this.handleNavClick = this.handleNavClick.bind(this);
@@ -34,11 +31,14 @@ class Item extends Component {
 
     this.setState({
       name: data.name,
-      imageUrl: data.name,
-      information: data
+      imageUrl: data.name
     })
      
   }
+
+
+
+
   handleNavClick(feature){
       this.setState({
         display: feature
@@ -55,12 +55,12 @@ class Item extends Component {
         <h1 > {this.state.name} </h1>
         <Container>
           <Row>
-            <Col>
+            <Col  md="4">
               <ItemGalery
                 imageUrl={this.state.imageUrl}
               ></ItemGalery>
             </Col>
-            <Col>
+            <Col  md="8">
               <Container>
                 <Row>
                   <ItemNav
@@ -70,6 +70,7 @@ class Item extends Component {
                 <Row>
                 <ItemDisplayer
                   display={this.state.display}
+                  data={JSON.parse(this.props.match.params.id)}
                 ></ItemDisplayer>
                 </Row>
               </Container>
