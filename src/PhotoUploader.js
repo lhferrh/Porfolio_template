@@ -19,7 +19,7 @@ var postImageToServer = (picture, callback) => {
     ).catch( (err) => {  console.log(err); return err; })
 }
 
-
+var prevSize = 0;
 
 class PhotoUploader extends Component {
     constructor(props) {
@@ -35,10 +35,25 @@ class PhotoUploader extends Component {
         });
     }
 
+
+
     onDrop(picture) {
-        console.log(picture);
+        console.log(picture.length, " vs ", prevSize);
+        // if we removed
+        if(picture.length <= prevSize){
+            prevSize = picture.length;
+            console.log("prevSize decrease/stays to ", prevSize);
+            return;
+        }
+        // Update size
+        prevSize = picture.length;
+        console.log("prevSize increase to ", prevSize);
+        // Ignore first part
+        if(picture.length >= 2)
+            picture = picture.slice(-1);
+        console.log("picture: ", picture);
         this.setState({
-            pictures: this.state.pictures.concat(picture),
+            pictures: picture
         });
         this.postImage(picture);
     }
