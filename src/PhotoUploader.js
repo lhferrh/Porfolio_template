@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {  Container, Row, Col } from "reactstrap";
 import ImageUploader from 'react-images-upload';
+import { withRouter } from "react-router-dom";
 //import { postImageToServer }from './api'
 import './style.css';
 
@@ -12,7 +13,7 @@ var postImageToServer = (picture, callback) => {
     data.append("file",picture);
     axios.post('http://10.42.0.117:3001/image', data).then(
         (res) => {
-            console.log("result");
+            console.log("Promise");
             console.log(res)
             callback(res)
         }
@@ -31,7 +32,12 @@ class PhotoUploader extends Component {
  
     postImage(picture){
         let res = postImageToServer(picture[0], function(data){
+            console.log("Final Result");
             console.log(data.data);
+            let path = "/item/25"; //+data.data;
+            console.log(path);
+            this.context.router.history.push(path);
+            
         });
     }
 
@@ -71,4 +77,6 @@ class PhotoUploader extends Component {
     }
 }
 
-export default PhotoUploader ;
+//export default PhotoUploader ;
+
+export default withRouter(PhotoUploader);
