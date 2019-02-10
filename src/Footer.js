@@ -16,13 +16,13 @@ class Footer extends Component {
     return (
       <div>
           <Container>
-              <Row>
-                <Col md={{ size: 6, offset: 3 }}>
-                    <Breadcrumb>
-                        <BreadcrumbItem><a href="#">About us</a></BreadcrumbItem>
-                        <BreadcrumbItem><a href="#">App</a></BreadcrumbItem>
-                        <BreadcrumbItem><a href="#">Contact</a></BreadcrumbItem>
-                        <BreadcrumbItem><a href="#">Careers</a></BreadcrumbItem>
+              <Row className="">
+                <Col  className="" md={{ size: 6, offset: 3 }}>
+                    <Breadcrumb className="">
+                        <BreadcrumbItem className="buttonS"><a href="#">About us</a></BreadcrumbItem>
+                        <BreadcrumbItem className="buttonS"><a href="#">App</a></BreadcrumbItem>
+                        <BreadcrumbItem className="buttonS"><a href="#">Contact</a></BreadcrumbItem>
+                        <BreadcrumbItem className="buttonS"><a href="#">Careers</a></BreadcrumbItem>
                     </Breadcrumb>
                 </Col>
               </Row>

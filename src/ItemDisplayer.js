@@ -9,20 +9,7 @@ class ItemDisplayer extends Component {
 
         this.state = {
             name: "Nutella",
-            data: "",
-            nutrients:{
-                Calories: 100,
-                Sugar: 100,
-                display: 0
-            },
-            alergies:{
-                Peanuts: "strong",
-                other: "weak"
-            },
-            recicling:{
-                Bottle: "cans bin",
-                top: "landfill"
-            }
+            data: ""
         }
         this.getFormatList = this.getFormatList.bind(this);
     }
@@ -81,7 +68,7 @@ class ItemDisplayer extends Component {
 
     return (
       <div>
-        <Container>
+        <Container className="itemDisplayer">
             <Row>
                 <Col>
                     <ul>

@@ -11,41 +11,36 @@ class ItemNav extends Component {
     constructor(props) {
         super(props);
     
-        this.toggle = this.toggle.bind(this);
+       
         this.state = {
           isOpen: false
         };
       }
-      toggle() {
-        this.setState({
-          isOpen: !this.state.isOpen
-        });
-      }
+ 
     render() {
         return (
             <div>
-                <Navbar color="faded" light expand="md">
-                    <NavbarToggler onClick={this.toggle} />
-                   
-
+                <Navbar className="paleGrey" color="faded" light expand="md">
+                    
+                
                     {/*Pull left */}
                     <Nav className="ml-auto" navbar>
-                        <NavItem>
+                        <NavItem className="buttonS">
                             <NavLink onClick={() => this.props.handleNavClick(0)}  >
                                 Nutritional
                             </NavLink>
                         </NavItem>
-                        <NavItem>
+                        <NavItem  className="buttonS">
                             <NavLink onClick={() => this.props.handleNavClick(1)}>
                                 Allergens
                             </NavLink>
                         </NavItem>
-                        <NavItem>
+                        <NavItem className="buttonS">
                             <NavLink onClick={() => this.props.handleNavClick(2)} >
                                 Recycling
                             </NavLink>
                         </NavItem>
-                        <NavItem>
+                        <NavItem className="buttonS">
                             <NavLink onClick={() => this.props.handleNavClick(3)} >
                                 Opinions
                             </NavLink>

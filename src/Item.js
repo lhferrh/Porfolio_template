@@ -10,6 +10,7 @@ import {  Container, Row, Col } from "reactstrap";
 
 
 import './style.css';
+import './bootstrap.css';
 
 class Item extends Component {
   
@@ -51,29 +52,52 @@ class Item extends Component {
   render() {
     console.log(JSON.parse(this.props.match.params.id))
     return (
-      <div>
+      <div className="fill">
         
         <Naveg></Naveg>
+        <div className="descriptionDisplayer">
         <h1 > {this.state.name} </h1><p>{this.state.description}</p>
+        </div>
+        
         <Container>
           <Row>
-            <Col  md="4">
+            <Col xs="12" md="4">
               <ItemGalery
                 imageUrl={this.state.imageUrl}
               ></ItemGalery>
             </Col>
-            <Col  md="8">
-              <Container>
-                <Row>
+            <Col xs="12"  md="8">
+              <Container className="d-none d-sm-block">
+                <Row >
                   <ItemNav
                   handleNavClick={this.handleNavClick}
                   ></ItemNav>
                 </Row>
-                <Row>
+                <Row >
                 <ItemDisplayer
                   display={this.state.display}
                   data={JSON.parse(this.props.match.params.id)}
                 ></ItemDisplayer>
+                </Row>
+              </Container>
+              <Container className="d-block d-sm-none">
+                <Row>
+                  <Col xs="4">
+                    <ItemNav
+                    handleNavClick={this.handleNavClick}
+                    ></ItemNav>
+                  </Col>
+                  <Col xs="8">
+                  <Container>
+                    <Row>
+                      <ItemDisplayer
+                      display={this.state.display}
+                      data={JSON.parse(this.props.match.params.id)}
+                    ></ItemDisplayer>
+                    </Row>
+                  </Container>
+                  
+                  </Col>
                 </Row>
               </Container>
             </Col>

@@ -4,8 +4,10 @@ import SearchBar from'./SearchBar'
 import PhotoUploader from './PhotoUploader'
 import ThemeSwitcher from './ThemeSwitcher'
 import Footer from './Footer'
+import { Container, Row, Col } from "reactstrap";
 
 import './style.css';
+import './bootstrap.css';
 
 class Search extends Component {
   
@@ -16,20 +18,20 @@ class Search extends Component {
 
     }
   }
-/*
-        <Nav></Nav>
-        <SearchBar></SearchBar>
-        <PhotoUploader></PhotoUploader>*/
          
   render() {
     return (
-      <div>
-        <Naveg></Naveg>
-        <h1 > SMARTFOOD</h1>
-        <SearchBar></SearchBar>
-        <PhotoUploader></PhotoUploader>
-        <ThemeSwitcher></ThemeSwitcher>
-        <Footer></Footer>
+      <div className="fill">
+        <Container >
+            <Naveg></Naveg>
+            <h1 className="d-none d-sm-block logo"> SMARTFOOD</h1>
+          <SearchBar></SearchBar>
+          <PhotoUploader></PhotoUploader>
+          <Footer></Footer>
+        </Container>
+        
+        
+       
       </div>
      
     )

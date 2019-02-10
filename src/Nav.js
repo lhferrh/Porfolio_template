@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, Collapse, NavbarToggler } from "reactstrap";
 
 import './style.css';
+import './bootstrap.css';
 import './nav.css';
 
 
@@ -24,9 +25,9 @@ class Naveg extends Component {
     render() {
         return (
             <div>
-                <Navbar color="faded" light expand="md">
+                <Navbar className="paleGrey" color="faded" light expand="md">
                     {/* Brandname */}
-                    <NavbarBrand href="/">
+                    <NavbarBrand className="" href="/">
                         SMARTFOOD
                     </NavbarBrand>
                     {/* Add toggler to auto-collapse */}
@@ -35,33 +36,26 @@ class Naveg extends Component {
 
                     {/*Pull left */}
                     <Nav className="ml-auto" navbar>
-                        <NavItem>
-                            <NavLink href="/link/">
-                                Left Nav Link
+                        <NavItem className="buttonS">
+                            <NavLink href="#">
+                                Home
                             </NavLink>
                         </NavItem>
-                    </Nav>
-
-                    {/* Pull right */}
-                    <Nav className="mr-auto" navbar>
-                    <UncontrolledDropdown nav inNavbar>
-                        <DropdownToggle nav caret>
-                        Bob
-                        </DropdownToggle>
-
-                        <DropdownMenu >
-                        <DropdownItem>
-                            Account
-                        </DropdownItem>
-                        <DropdownItem>
-                            Settings
-                        </DropdownItem>
-                        <DropdownItem divider />
-                        <DropdownItem>
-                            Logout
-                        </DropdownItem>
-                        </DropdownMenu>
-                    </UncontrolledDropdown>
+                        <NavItem className="buttonS">
+                            <NavLink href="#">
+                                App
+                            </NavLink>
+                        </NavItem>
+                        <NavItem className="buttonS">
+                            <NavLink href="#">
+                                DataBase
+                            </NavLink>
+                        </NavItem>
+                        <NavItem className="buttonS">
+                            <NavLink href="#">
+                                Login
+                            </NavLink>
+                        </NavItem>
                     </Nav>
                 </Collapse>
                 </Navbar>

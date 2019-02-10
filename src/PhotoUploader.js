@@ -75,7 +75,6 @@ class PhotoUploader extends Component {
         
         return (
             <div>
-                <h1>The image is {(this.state.pictures[0])?this.state.pictures[0]['name']: "empty"}</h1>
                 <Container>
                     <Row>
                         <Col>

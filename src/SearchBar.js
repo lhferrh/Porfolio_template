@@ -29,14 +29,14 @@ class SearchBar extends Component {
       <div>
         <Container>
         <Row>
-          <Col sm='10'>
-            <MDBCol md="6">
+          <Col xs='8' sm='10'>
+            <MDBCol >
               <div className="active-pink-3 active-pink-4 mb-4">
                 <input onChange={this.handleChange} value={this.state.name} className="form-control" type="text" placeholder="Search" aria-label="Search" />
               </div>
             </MDBCol>
           </Col>
-          <Col sm='2'>
+          <Col  xs='4' sm='2'>
              <Button color="primary" onClick={this.handleSubmit}>Search</Button>
           </Col>
         </Row>

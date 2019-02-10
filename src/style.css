@@ -1,0 +1,44 @@
+:root {
+    --main-nav-color: #e9ecef;
+    --main-hover-color: rgb(100, 92, 92) ; 
+    
+    --main-txt-color: blue; 
+    --main-padding: 15px; 
+    --main-background-color:  #e9ecef4a;;
+  }
+
+  .paleGrey {
+      background: var(--main-nav-color)
+  }
+  .black {
+    background: black;
+    color: white;  
+  }
+  .App{
+    background: var(--main-background-color);
+ 
+  }
+
+  .buttonS:hover{
+    background: var(--main-hover-color);
+  }
+
+  a{
+    color:black;
+  }
+
+  .logo{
+    padding: 97px 34px 103px 27px;
+    font-size: 69px;
+    font-weight: 900;
+}
+
+.fill { 
+    min-height: 100%;
+    height: 100%;
+}
+
+.descriptionDisplayer{
+    padding: 50px 20px 15px 14px;
+
+}
