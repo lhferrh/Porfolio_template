@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Media, Card, CardImg, } from 'reactstrap';
 import './style.css';
+import nutella from './images/nutella.jpg'
 
 class ItemGalery extends Component {
   
@@ -27,7 +28,7 @@ class ItemGalery extends Component {
       <div>
         <h1>{url}</h1>
         <Card>
-            <CardImg top width="100%" src="./images/nutella.jpg" alt="Card image cap" />
+            <CardImg top width="100%" alt="Card image cap" />
         </Card>
 
       </div>
