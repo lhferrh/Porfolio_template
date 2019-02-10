@@ -28,10 +28,7 @@ class Search extends Component {
           <SearchBar></SearchBar>
           <PhotoUploader></PhotoUploader>
           <Footer></Footer>
-        </Container>
-        
-        
-       
+        </Container> 
       </div>
      
     )

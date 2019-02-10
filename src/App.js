@@ -6,6 +6,7 @@ import { Route } from 'react-router';
 
 import Search from './Search'
 import Item from './Item'
+import NotFound from './NotFound'
 
 //<Route exact path="/item/:id" component={Item} />
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Search} />
               <Route exact path="/item/:id" component={Item} />
+              <Route exact path="/404" component={NotFound} />
             </Switch>
           </div>
         </div>

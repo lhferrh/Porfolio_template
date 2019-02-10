@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import {  Container, Row, Col } from "reactstrap";
 import './style.css';
 
+import {FaThumbsUp} from 'react-icons/fa'
+import {FaThumbsDown} from 'react-icons/fa'
+
 class ItemDisplayer extends Component {
   
     constructor(props){
@@ -25,13 +28,23 @@ class ItemDisplayer extends Component {
         console.log(this.state.data);
        
     }
-    getFormatList( type, list){
+    getFormatList(type, list){
         let content = "";
         let result = [];
         if( type === "key-value"){
             for (var key in list) {
                 content =  key + ": " + list[key]
-                result.push( <li>{content}</li>);
+                result.push(<li>{content}</li>);
+            }
+        }
+        else if(type === "nutr-key-value"){
+            for (var key in list) {
+                content =  key + ": " + list[key]
+                if(key == 'serving'){
+                    result.unshift(<h5>{"Serving" + ": " + list[key]}</h5>);
+                } else {
+                    result.push(<li>{content}</li>)
+                }
             }
         }
         else if( type === "array"){
@@ -42,17 +55,16 @@ class ItemDisplayer extends Component {
         }
         else if( type === "score-text"){
             for (var key in list) {
-                content =   list[key]['text'] + " " + list[key]['score'];
-                result.push( <li>{content}</li>);
+                content =   list[key]['text'] + " " + <FaThumbsUp/> + list[key]['score'];
+                result.push(<li>{list[key]['text']} {(parseInt(list[key]['score'], 10) < 0 ? <FaThumbsDown/> : <FaThumbsUp/>) } {list[key]['score']}</li>);       
             }
         }
-       
 
         return result;
     }
          
   render() {
-      let nutritional = this.getFormatList("key-value", this.state.data['nutritional']);
+      let nutritional = this.getFormatList("nutr-key-value", this.state.data['nutritional']);
       //console.log("nutritional")
       //console.log(nutritional);
       let allergens = this.getFormatList("array", this.state.data['allergens']);

@@ -1,24 +1,11 @@
 import React, { Component } from 'react';
 import {  Container, Row, Col } from "reactstrap";
 import ImageUploader from 'react-images-upload';
-//import { postImageToServer }from './api'
+import { postImageToServer }from './api'
 import './style.css';
 import { withRouter } from 'react-router-dom';
 
 import axios from 'axios';
-
-var postImageToServer = (picture, pointer,  callback) => {
-    console.log(picture);
-    let data = new FormData();
-    data.append("file",picture);
-    axios.post('http://10.42.0.117:3001/image', data).then(
-        (res) => {
-            console.log("Promise");
-            console.log(res)
-            return callback(res, pointer)
-        }
-    ).catch( (err) => {  console.log(err); return err; })
-}
 
 var prevSize = 0;
 
@@ -31,22 +18,22 @@ class PhotoUploader extends Component {
     }
  
     postImage(picture){
-        let res = postImageToServer(picture[0],this,  function(data, pointer ){
+        postImageToServer(picture[0], this, function(data, pointer ){
             console.log("Final Result");
             console.log(data.data);
             let json = JSON.stringify(data.data);
-            let path = "/item/"+json;
+            let path;
+            console.log("THE SJONB", json)
+            if(json == '{}') {
+                path = "/404"
+            } else {
+                path = "/item/"+json;
+            }
             console.log(pointer.props.history) //.push(res);
             pointer.props.history.push(path);
             return path;
         });
-        
-        console.log("outside");
-        console.log(res);
-        //this.props.history.push(res);
     }
-
-
 
     onDrop(picture) {
         console.log(picture.length, " vs ", prevSize);
@@ -83,15 +70,13 @@ class PhotoUploader extends Component {
                             buttonText='Upload Image'
                             onChange={this.onDrop}
                             withPreview={true}
-                            imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                            imgExtension={['.jpeg', '.jpg', '.gif', '.png', '.gif']}
                             maxFileSize={5242880}
                         />
                         </Col>
                     </Row>
                 </Container>
-               
             </div>
-           
         );
     }
 }

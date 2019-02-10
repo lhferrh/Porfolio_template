@@ -2,20 +2,10 @@ import React, { Component } from 'react';
 import { MDBCol } from "mdbreact";
 import { Button, Container, Row, Col } from "reactstrap";
 import './style.css';
-//import './bootstrap.css'
+import { postNameToServer }from './api'
 import { withRouter } from 'react-router-dom';
 
 import axios from 'axios';
-
-var postNameToServer = (name, pointer,  callback) => {
-    axios.get('http://10.42.0.117:3001/name', { params: {"name": name}}).then(
-        (res) => {
-            console.log("Promise");
-            console.log(res)
-            return callback(res, pointer)
-        }
-    ).catch( (err) => {  console.log(err); return err; })
-}
 
 class SearchBar extends Component {
     constructor(props){
