@@ -18,20 +18,12 @@ class PhotoUploader extends Component {
     }
  
     postImage(picture){
-        postImageToServer(picture[0], this, function(data, pointer ){
-            console.log("Final Result");
-            console.log(data.data);
+        postImageToServer(picture[0], this, (data, pointer) => {
             let json = JSON.stringify(data.data);
-            let path;
-            console.log("THE SJONB", json)
-            if(json == '{}') {
-                path = "/404"
-            } else {
-                path = "/item/"+json;
-            }
-            console.log(pointer.props.history) //.push(res);
-            pointer.props.history.push(path);
-            return path;
+            pointer.props.history.push("/item/"+json);
+        }, (err, pointer) => {
+            console.log(err.response.status);
+            pointer.props.history.push("/" + err.response.status);
         });
     }
 
