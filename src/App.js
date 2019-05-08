@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-import { BrowserRouter, Switch } from 'react-router-dom';
-import { Route } from 'react-router';
+import { BrowserRouter, Switch } from "react-router-dom";
+import { Route } from "react-router";
 
-import Search from './Search'
-import Item from './Item'
-import NotFound from './NotFound'
-
+import home from "./Home";
+import projects from "./Projects";
+import Navigation from "./Navigation";
 //<Route exact path="/item/:id" component={Item} />
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <Navigation />
         <BrowserRouter>
-        <div>          
-          <div className="container">
-            <Switch>
-              <Route exact path="/" component={Search} />
-              <Route exact path="/item/:id" component={Item} />
-              <Route exact path="/404" component={NotFound} />
-            </Switch>
+          <div>
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={home} />
+                <Route exact path="/projects" component={projects} />
+              </Switch>
+            </div>
           </div>
-        </div>
-      </BrowserRouter>
+        </BrowserRouter>
+        <footer />
       </div>
     );
   }
